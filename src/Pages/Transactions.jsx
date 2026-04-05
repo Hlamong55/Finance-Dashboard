@@ -1,17 +1,18 @@
 import Sidebar from "../components/Sidebar";
+import TransactionsTable from "../components/TransactionsTable";
 
 const Transactions = () => {
   return (
-    <div className="flex">
-
+    <div className="flex min-h-screen bg-gray-100">
       <Sidebar />
 
-      <div className="p-6 flex-1">
-        <h1 className="text-2xl font-bold">
+      <div className="flex-1 p-8">
+        <h1 className="text-3xl font-bold mb-6">
           Transactions
         </h1>
-      </div>
 
+        <TransactionsTable />
+      </div>
     </div>
   );
 };
