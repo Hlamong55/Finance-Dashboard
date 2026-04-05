@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/icon.png";
-import { useRole } from "../Context/RoleContext";
+import { useRole } from "../context/RoleContext";
 
 const Sidebar = () => {
   const { role, setRole } = useRole();

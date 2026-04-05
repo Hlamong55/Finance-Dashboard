@@ -1,7 +1,7 @@
 import { useState } from "react";
 import avatar from "../assets/avatar.png";
-import { useTransaction } from "../Context/TransactionContext";
-import { useRole } from "../Context/RoleContext"; // ✅ add
+import { useTransaction } from "../context/TransactionContext";
+import { useRole } from "../context/RoleContext"; // ✅ add
 
 const DashboardHeader = () => {
   const [open, setOpen] = useState(false);
@@ -123,8 +123,19 @@ const DashboardHeader = () => {
               </div>
 
               <div className="grid grid-cols-2 gap-4">
-                <input type="number" name="amount" required placeholder="Amount" className="border p-2 rounded" />
-                <input type="date" name="date" required className="border p-2 rounded" />
+                <input
+                  type="number"
+                  name="amount"
+                  required
+                  placeholder="Amount"
+                  className="border p-2 rounded"
+                />
+                <input
+                  type="date"
+                  name="date"
+                  required
+                  className="border p-2 rounded"
+                />
               </div>
 
               <select name="category" className="w-full border p-2 rounded">
@@ -139,7 +150,10 @@ const DashboardHeader = () => {
                   Cancel
                 </button>
 
-                <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+                <button
+                  type="submit"
+                  className="bg-blue-500 text-white px-4 py-2 rounded"
+                >
                   Save
                 </button>
               </div>
