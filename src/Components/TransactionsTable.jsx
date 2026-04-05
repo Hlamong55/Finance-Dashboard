@@ -1,12 +1,14 @@
 import { useContext, useState } from "react";
 import { TransactionContext } from "../context/TransactionContext";
 import { RoleContext } from "../context/RoleContext";
+import AddTransactionModal from "./AddTransactionModal";
 
 const TransactionsTable = () => {
   const { transactions } = useContext(TransactionContext);
   const { role } = useContext(RoleContext);
 
   const [search, setSearch] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   const filtered = transactions.filter((t) =>
     t.category.toLowerCase().includes(search.toLowerCase())
@@ -26,7 +28,10 @@ const TransactionsTable = () => {
         />
 
         {role === "admin" && (
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+          <button
+            onClick={() => setShowModal(true)}
+            className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
+          >
             + Add Transaction
           </button>
         )}
@@ -45,7 +50,6 @@ const TransactionsTable = () => {
               <th>Category</th>
               <th>Amount</th>
               <th>Type</th>
-              {role === "admin" && <th>Actions</th>}
             </tr>
 
           </thead>
@@ -80,20 +84,6 @@ const TransactionsTable = () => {
                   </span>
                 </td>
 
-                {role === "admin" && (
-                  <td className="flex gap-2">
-
-                    <button className="text-blue-500 hover:underline">
-                      Edit
-                    </button>
-
-                    <button className="text-red-500 hover:underline">
-                      Delete
-                    </button>
-
-                  </td>
-                )}
-
               </tr>
             ))}
 
@@ -102,6 +92,10 @@ const TransactionsTable = () => {
         </table>
 
       </div>
+
+      {showModal && (
+        <AddTransactionModal close={() => setShowModal(false)} />
+      )}
 
     </div>
   );
