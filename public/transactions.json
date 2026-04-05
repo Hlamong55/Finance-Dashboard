@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "date": "2026-04-01",
+    "description": "Salary",
+    "category": "Income",
+    "amount": 5000
+  },
+  {
+    "id": 2,
+    "date": "2026-04-02",
+    "description": "Food",
+    "category": "Expense",
+    "amount": -200
+  },
+  {
+    "id": 3,
+    "date": "2026-04-03",
+    "description": "Transport",
+    "category": "Expense",
+    "amount": -100
+  }
+]
