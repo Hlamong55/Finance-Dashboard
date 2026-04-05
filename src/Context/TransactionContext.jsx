@@ -1,33 +1,35 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const TransactionContext = createContext();
 
-export const TransactionProvider = ({ children }) => {
-  const [transactions, setTransactions] = useState(() => {
-    const saved = localStorage.getItem("transactions");
-    return saved ? JSON.parse(saved) : [];
-  });
+const TransactionProvider = ({ children }) => {
+  const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
-    localStorage.setItem("transactions", JSON.stringify(transactions));
-  }, [transactions]);
+    fetch("/transactions.json")
+      .then((res) => res.json())
+      .then((data) => setTransactions(data));
+  }, []);
 
-  const addTransaction = (data) => {
-    setTransactions((prev) => [...prev, data]);
+  const addTransaction = (newTransaction) => {
+    setTransactions([...transactions, newTransaction]);
   };
 
-  // ✅ Delete function
   const deleteTransaction = (id) => {
-    setTransactions((prev) => prev.filter((item) => item.id !== id));
+    setTransactions(transactions.filter((t) => t.id !== id));
   };
 
   return (
     <TransactionContext.Provider
-      value={{ transactions, addTransaction, deleteTransaction }}
+      value={{
+        transactions,
+        addTransaction,
+        deleteTransaction,
+      }}
     >
       {children}
     </TransactionContext.Provider>
   );
 };
 
-export const useTransaction = () => useContext(TransactionContext);
+export { TransactionContext, TransactionProvider };
