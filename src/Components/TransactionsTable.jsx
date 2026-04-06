@@ -114,7 +114,7 @@ const TransactionsTable = () => {
               <td>
                 <span
                   className={`px-2 py-1 text-xs rounded-full ${
-                    t.type === "income"
+                    t.type === "income" 
                       ? "bg-green-100 text-green-600"
                       : "bg-red-100 text-red-500"
                   }`}
@@ -138,4 +138,4 @@ const TransactionsTable = () => {
   );
 };
 
-export default TransactionsTable; 
+export default TransactionsTable;   `1`    

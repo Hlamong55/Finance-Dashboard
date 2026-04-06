@@ -25,7 +25,7 @@ const DashBoard = () => {
 
       <Sidebar />
 
-      <div className="flex-1 p-8 max-w-7xl mx-auto">
+      <div className="flex-1 p-8 ml-64 max-w-7xl mx-auto">
 
         <DashboardHeader />
 
