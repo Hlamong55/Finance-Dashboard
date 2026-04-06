@@ -1,21 +1,20 @@
-# 💰 Finance Dashboard UI
+# 💰 FinTech Dashboard
 
-> A modern, responsive, and interactive finance dashboard built with React to track income, expenses, and transactions with role-based access control.
+A modern, responsive, and interactive **finance dashboard** built with **React** to track income, expenses, and transactions with role-based access control.
 
 ---
 
 ## 🌐 Live Demo
 
-👉 [View Live Project](https://finance-dashboard-pritom.web.app/)
+👉 (https://fintech-dashboard-ui.netlify.app/)
 
 ---
-
-x`
 
 ## ✨ Features
 
 ### 📊 Dashboard Overview
 - Total Balance, Income, and Expense summary cards
+- Interactive charts for financial insights
 - Clean and modern UI design
 - Responsive layout for all devices
 
@@ -69,13 +68,13 @@ x`
 ### 1️⃣ Clone the Repository
 
 
-git clone https://github.com/PritomChakma/Finance_Dashboard.git
+git clone https://github.com/Hlamong55/Finance-Dashboard
 
 
 ### 2️⃣ Navigate to Project Folder
 
 
-cd Finance_Dashboard
+cd Finance-Dashboard
 
 
 ### 3️⃣ Install Dependencies
@@ -96,7 +95,6 @@ npm run dev
 
 This project simulates role-based access on the frontend:
 
-```jsx
 {role === "admin" && (
   <button>Add Transaction</button>
 )}
@@ -133,15 +131,14 @@ Professional dashboard design
 🔐 Full authentication system
 📷 Screenshots
 
-Add your screenshots here
 
 👨‍💻 Author
 
-Pritom Chakma
+Hlamong Sing Marma
 
-🌐 Portfolio: https://pritomchakma-4a4c7.web.app
-💻 GitHub: https://github.com/PritomChakma
-💼 LinkedIn: https://www.linkedin.com/in/pritomchakma
+🌐 Portfolio: https://hlamong-dev-portfolio.netlify.app/
+💻 GitHub: https://github.com/Hlamong55
+💼 LinkedIn: https://www.linkedin.com/in/hlamong-sing/
 📧 Email: chakmapritom1@gmail.com
 🏁 Conclusion
 
