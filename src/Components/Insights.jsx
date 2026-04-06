@@ -1,10 +1,16 @@
 import { useContext } from "react";
 import { TransactionContext } from "../context/TransactionContext";
+import { FaChartPie } from "react-icons/fa";
+import { FaMoneyBillWave } from "react-icons/fa";
+import { FaCalculator } from "react-icons/fa";
 
 const Insights = () => {
+
   const { transactions } = useContext(TransactionContext);
 
-  const expenses = transactions.filter((t) => t.type === "expense");
+  const expenses = transactions.filter(
+    (t) => t.type === "expense"
+  );
 
   const categoryTotals = {};
 
@@ -28,40 +34,53 @@ const Insights = () => {
     totalExpenses / (expenses.length || 1);
 
   return (
-    <div className="bg-white rounded-xl shadow-md p-6">
+    <div className="grid md:grid-cols-3 gap-6">
 
-      <h2 className="text-xl font-semibold mb-4">
-        Insights
-      </h2>
+      <div className="bg-indigo-100 p-5 rounded-xl flex justify-between items-center">
 
-      <div className="grid md:grid-cols-3 gap-6">
-
-        <div className="bg-gray-50 p-4 rounded-lg">
-          <p className="text-sm text-gray-500">
-            Highest Spending Category
+        <div>
+          <p className="text-sm text-gray-600">
+            Highest Spending
           </p>
-          <p className="text-lg font-bold">
+
+          <h3 className="text-lg font-bold">
             {highestCategory}
-          </p>
+          </h3>
         </div>
 
-        <div className="bg-gray-50 p-4 rounded-lg">
-          <p className="text-sm text-gray-500">
+        <FaChartPie className="text-indigo-500 text-2xl" />
+
+      </div>
+
+      <div className="bg-red-100 p-5 rounded-xl flex justify-between items-center">
+
+        <div>
+          <p className="text-sm text-gray-600">
             Total Expenses
           </p>
-          <p className="text-lg font-bold">
+
+          <h3 className="text-lg font-bold">
             ${totalExpenses}
-          </p>
+          </h3>
         </div>
 
-        <div className="bg-gray-50 p-4 rounded-lg">
-          <p className="text-sm text-gray-500">
-            Avg Expense Transaction
+        <FaMoneyBillWave className="text-red-500 text-2xl" />
+
+      </div>
+
+      <div className="bg-green-100 p-5 rounded-xl flex justify-between items-center">
+
+        <div>
+          <p className="text-sm text-gray-600">
+            Avg Transaction
           </p>
-          <p className="text-lg font-bold">
+
+          <h3 className="text-lg font-bold">
             ${avgTransaction.toFixed(2)}
-          </p>
+          </h3>
         </div>
+
+        <FaCalculator className="text-green-500 text-2xl" />
 
       </div>
 
