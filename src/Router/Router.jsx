@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-// import DashBoard from "../pages/DashBoard";
+import DashBoard from "../pages/DashBoard";
 import Transactions from "../pages/Transactions";
-import DashBoard from "../Pages/DashBoard";
+// import DashBoard from "../Pages/DashBoard";
 
 const router = createBrowserRouter([
   {
