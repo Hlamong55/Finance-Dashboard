@@ -7,46 +7,34 @@ const DashboardHeader = () => {
   const { role, setRole } = useContext(RoleContext);
   const location = useLocation();
 
-  const pageTitle = location.pathname === "/transactions"
-    ? "Transactions"
-    : "Dashboard";
+  const pageTitle =
+    location.pathname === "/transactions"
+      ? "Transactions"
+      : "Dashboard";
 
   return (
-    <div className="flex justify-between items-center bg-white p-4 rounded-xl shadow mb-6">
+    <div className="flex items-center justify-between mb-8 bg-white px-6 py-4 rounded-xl shadow-sm">
 
-      {/* Left section */}
       <div>
         <h1 className="text-2xl font-bold text-gray-800">
           {pageTitle}
         </h1>
-
         <p className="text-sm text-gray-400">
           Welcome back
         </p>
       </div>
 
-      {/* Right section */}
       <div className="flex items-center gap-4">
 
-        {/* Role switch */}
-        <div className="flex items-center gap-2">
+        <select
+          value={role}
+          onChange={(e) => setRole(e.target.value)}
+          className="border rounded-md px-3 py-1 text-sm"
+        >
+          <option value="viewer">Viewer</option>
+          <option value="admin">Admin</option>
+        </select>
 
-          <span className="text-sm text-gray-500">
-            Role
-          </span>
-
-          <select
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
-            className="border rounded-md px-2 py-1 text-sm"
-          >
-            <option value="viewer">Viewer</option>
-            <option value="admin">Admin</option>
-          </select>
-
-        </div>
-
-        {/* Avatar */}
         <img
           src={avatar}
           alt="avatar"
